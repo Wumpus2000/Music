@@ -1,13 +1,13 @@
 module.exports = {
     app: {
         px: '.',
-        playing: 'by Zerio ❤️'
+        playing: 'Wumpus World'
     },
 
     opt: {
         DJ: {
             enabled: false,
-            roleName: 'DJ',
+            roleName: 'Server DJ',
             commands: ['back', 'clear', 'filter', 'loop', 'pause', 'resume', 'seek', 'shuffle', 'skip', 'stop', 'volume']
         },
         maxVol: 100,

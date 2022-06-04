@@ -9,16 +9,15 @@ module.exports = {
     execute(client, message) {
         const queue = player.getQueue(message.guild.id);
 
-        if (!queue) return message.channel.send(`No music currently playing ${message.author}... try again ? ❌`);
+        if (!queue) return message.channel.send(`No music currently playing ${message.author}... try again ? <:Cross:979517331334123530>`);
 
-        if (!queue.tracks[0]) return message.channel.send(`No music in the queue after the current one ${message.author}... try again ? ❌`);
+        if (!queue.tracks[0]) return message.channel.send(`No music in the queue after the current one ${message.author}... try again ? <:Cross:979517331334123530>`);
 
         const embed = new MessageEmbed();
         const methods = ['', '🔁', '🔂'];
 
         embed.setColor('RED');
         embed.setThumbnail(message.guild.iconURL({ size: 2048, dynamic: true }));
-        embed.setAuthor(`Server queue - ${message.guild.name} ${methods[queue.repeatMode]}`, client.user.displayAvatarURL({ size: 1024, dynamic: true }));
 
         const tracks = queue.tracks.map((track, i) => `**${i + 1}** - ${track.title} | ${track.author} (requested by : ${track.requestedBy.username})`);
 
