@@ -9,7 +9,7 @@ module.exports = {
     execute(client, message, args) {
         const embed = new MessageEmbed();
 
-        embed.setColor('RED');
+        embed.setColor('BLURPLE');
 
         const commands = client.commands.filter(x => x.showHelp !== false);
 

@@ -15,23 +15,30 @@ module.exports = {
 
         const embed = new MessageEmbed();
 
-        embed.setColor('RED');
-        embed.setThumbnail(track.thumbnail);
+        embed.setColor('BLURPLE');
+        embed.setImage(track.thumbnail)
 
         const methods = ['disabled', 'track', 'queue'];
 
         const timestamp = queue.getPlayerTimestamp();
         const trackDuration = timestamp.progress == 'Infinity' ? 'infinity (live)' : track.duration;
 
-        embed.setDescription(`Volume **${queue.volume}**%\nDuration **${trackDuration}**\nLoop mode **${methods[queue.repeatMode]}**\nRequested by ${track.requestedBy}`);
-
         embed.setTimestamp();
+        embed.addField("Title", `\`\`\`\n${track.title.slice(0, 50).concat('...') || " "} \`\`\``)
+        embed.addField("Views", `\`\`\`\n${track.views}\`\`\``, true)
+        embed.addField("Volume", `\`\`\`\n${queue.volume}\`\`\``, true)
+        embed.addField("Duration", `\`\`\`\n${trackDuration}\`\`\``, true)
+        embed.addField("Loop mode", `\`\`\`\n${methods[queue.repeatMode]}\`\`\``, true)
+        embed.addField("Requested by", `${track.requestedBy}`)
+
+
+
 
         const saveButton = new MessageButton();
 
         saveButton.setLabel('Save this track');
         saveButton.setCustomId('saveTrack');
-        saveButton.setStyle('SUCCESS');
+        saveButton.setStyle('PRIMARY');
 
         const row = new MessageActionRow().addComponents(saveButton);
 

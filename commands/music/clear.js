@@ -13,6 +13,6 @@ module.exports = {
 
         await queue.clear();
 
-        message.channel.send(`The queue has just been cleared 🗑️`);
+        message.channel.send(`The queue has just been cleared <:CircleTrash:956034695899021352>`);
     },
 };
